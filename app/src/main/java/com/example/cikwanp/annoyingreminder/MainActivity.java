@@ -15,9 +15,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Intent intent = new Intent(this, AnnoyingService.class);
-        intent.putExtra("foo", "bar");
-        startService(intent);
+        //Intent intent = new Intent(this, AnnoyingService.class);
+        //intent.putExtra("foo", "bar");
+        //startService(intent);
     }
 
     @Override
@@ -41,6 +41,8 @@ public class MainActivity extends AppCompatActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+            Intent i = new Intent(this,SettingsActivity.class);
+            startActivity(i);
             return true;
         }
 
