@@ -1,5 +1,6 @@
 package com.example.cikwanp.annoyingreminder;
 
+import android.app.KeyguardManager;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -10,8 +11,13 @@ import android.content.Intent;
 public class ScreenReceiver extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
-        if(intent.getAction().equals(Intent.ACTION_USER_PRESENT)){
+        if(intent.getAction().equals("android.intent.action.USER_PRESENT")){
             Intent i = new Intent(context,AnnoyingService.class);
+            context.startService(i);
+        }
+        KeyguardManager keyguardManager = (KeyguardManager) context.getSystemService(Context.KEYGUARD_SERVICE);
+        if (keyguardManager.isKeyguardSecure()) {
+            Intent i = new Intent(context, AnnoyingService.class);
             context.startService(i);
         }
     }

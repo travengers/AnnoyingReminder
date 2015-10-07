@@ -9,12 +9,20 @@ import android.view.MenuItem;
 
 public class MainActivity extends AppCompatActivity {
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        AnnoyingService service = new AnnoyingService();
-        service.launchService();
+        Intent intent = new Intent(this, AnnoyingService.class);
+        intent.putExtra("foo", "bar");
+        startService(intent);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
     }
 
     @Override
