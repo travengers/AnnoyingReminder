@@ -30,9 +30,7 @@ public class AnnoyingService extends IntentService {
         super.onCreate();
 
         IntentFilter filter = new IntentFilter("android.intent.action.USER_PRESENT");
-
         registerReceiver(receiver, filter);
-
 
     }
 
@@ -76,4 +74,6 @@ public class AnnoyingService extends IntentService {
         // mId allows you to update the notification later on.
         mNotificationManager.notify(nId, mBuilder.build());
     }
+
+
 }

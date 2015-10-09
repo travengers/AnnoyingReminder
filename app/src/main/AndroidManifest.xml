@@ -15,25 +15,40 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
         <activity
             android:name=".SettingsActivity"
             android:label="@string/title_activity_settings" >
-
         </activity>
+
         <service
             android:name=".AnnoyingService"
-            android:exported="false">
+            android:exported="false" >
         </service>
+
         <receiver
-            android:name="com.example.cikwanp.annoyingreminder.ScreenReceiver"
-            android:enabled="true">
+            android:name=".ScreenReceiver"
+            android:enabled="true" >
             <intent-filter>
                 <action android:name="android.intent.action.USER_PRESENT" />
                 <action android:name="android.intent.action.ACTION_SCREEN_ON" />
             </intent-filter>
         </receiver>
+
+        <service
+            android:name=".PopupService"
+            android:enabled="true"
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.USER_PRESENT" />
+                <action android:name="android.intent.action.ACTION_SCREEN_ON" />
+            </intent-filter>
+            \
+        </service>
+
+
+
+        <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
     </application>
 
 </manifest>
