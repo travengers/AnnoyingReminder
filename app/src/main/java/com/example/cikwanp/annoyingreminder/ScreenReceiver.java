@@ -19,13 +19,13 @@ public class ScreenReceiver extends BroadcastReceiver {
             context.startService(pop);
 
         }
-        KeyguardManager keyguardManager = (KeyguardManager) context.getSystemService(Context.KEYGUARD_SERVICE);
+        /*KeyguardManager keyguardManager = (KeyguardManager) context.getSystemService(Context.KEYGUARD_SERVICE);
         if (keyguardManager.isKeyguardSecure()) {
             Intent i = new Intent(context, AnnoyingService.class);
             context.startService(i);
 
             Intent pop = new Intent(context,PopupService.class);
             context.startService(pop);
-        }
+        }*/
     }
 }
